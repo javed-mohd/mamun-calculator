@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator structure</title>
+</head>
+<style>
+	.main {
+    width: 20%;
+    margin: auto;
+    background: #8a2be27a;
+    padding: 40px;
+    }
+    .secreen input[type="text"] {
+    width: 100%;
+    padding: 5px 10px;
+    height: 30px;
+    margin-bottom: 3px;
+    border: none;
+    color: #000;
+    font-size: 16px;
+}
+.btn input.clearbtn {
+    width: 100%;
+    height: 36px;
+    cursor: pointer;
+    margin: 3px 0px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    background: #ff00bc;
+}
+.btns input.numbers {
+    width: 60px;
+    cursor: pointer;
+    font-size: 20px;
+    height: 41px;
+    margin: 1px;
+    font-weight: bold;
+}
+.btns {
+    width: 100%;
+}
+@media(max-width: 768px) {
+	.btns input.numbers {
+    width: 37px;
+    cursor: pointer;
+    font-size: 12px;
+    height: 25px;
+    margin: 0px;
+    font-weight: bold;
+}
+.main {
+	width: 40%;
+}
+}
+</style>
+<body>
+   <div class="main">
+   	<form class="calculatorform" name="calculatorform">
+   		<div class="secreen">
+   			<input type="text" name="secreen" readonly>
+   		</div>
+   		<div class="btn">
+   			<input type="button" name="clear" class="clearbtn" value="clear" onclick="clearvalue();">
+   		</div>
+   		<div class="btns">
+   			<input type="button" name="num1" class="numbers" value="1" onclick="valuebutton(this);">
+   			<input type="button" name="num2" class="numbers" value="2" onclick="valuebutton(this);">
+   			<input type="button" name="num3" class="numbers" value="3" onclick="valuebutton(this);">
+   			<input type="button" name="plus" class="numbers" value="+" onclick="valuebutton(this);">
+   		</div>
+
+   		<div class="btns">
+   			<input type="button" name="num4" class="numbers" value="4" onclick="valuebutton(this);">
+   			<input type="button" name="num5" class="numbers" value="5" onclick="valuebutton(this);">
+   			<input type="button" name="num6" class="numbers" value="6" onclick="valuebutton(this);">
+   			<input type="button" name="sub" class="numbers" value="-" onclick="valuebutton(this);">
+   		</div>
+
+   		<div class="btns">
+   			<input type="button" name="num7" class="numbers" value="7" onclick="valuebutton(this);">
+   			<input type="button" name="num8" class="numbers" value="8" onclick="valuebutton(this);">
+   			<input type="button" name="num9" class="numbers" value="9" onclick="valuebutton(this);">
+   			<input type="button" name="mul" class="numbers" value="*" onclick="valuebutton(this);">
+   		</div>
+
+   		<div class="btns">
+   			<input type="button" name="num0" class="numbers" value="0" onclick="valuebutton(this);">
+   			<input type="button" name="div" class="numbers" value="/" onclick="valuebutton(this);">
+   			<input type="button" name="equal" class="numbers" value="=" onclick="Calculate();">
+   		</div>
+   	</form>
+   </div>
+   <script>
+   	function valuebutton(e) {
+   		calculatorform.secreen.value += e.value;
+   	}
+   	function clearvalue() {
+   		calculatorform.secreen.value = null;
+   	}
+   	function Calculate() {
+   		calculatorform.secreen.value = eval(calculatorform.secreen.value);
+   	}
+   </script>
+</body>
+</html>
